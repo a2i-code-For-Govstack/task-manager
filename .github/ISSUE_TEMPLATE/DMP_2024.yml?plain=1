@@ -1,0 +1,128 @@
+name: DMP 2024 Project Template	
+description: List a new project for Dedicated Mentoring Program (DMP) 2024 
+title: "[DMP 2024]: "
+labels: ["DMP 2024"]
+body:
+  - type: textarea
+    id: ticket-description
+    validations:
+      required: true
+    attributes:
+      label: Ticket Contents
+      value: |
+        ## Description
+        A Task Manager is a platform for managing task, subtask & events for users. It offers a user-friendly interface to maintain the task,subtask & events. This platform also offers single and recurring event setup with calendar sharing mechanism. Facilitate users to set their meeting/event time in the calendar as well as sharing with the team/office/external offices. Assigned in task, subtask & events other officers and ensure necessary notifications.User will have the access to communicate though real time chat or task comment with other team mates about the tasks.Overall, this Task Manager platform provides a comprehensive solution for users to efficiently manage their tasks, schedule events, collaborate with team members, and stay organized with timely notifications and communication tools.
+        **New feature Development scope:**
+        1. Add event directly in Google Calendar
+        2. Integration with Notification service
+        3. Login through SSO 
+        4. Enhence UI/UX
+
+  - type: textarea
+    id: ticket-goals
+    validations:
+      required: true
+    attributes:
+      label: Goals & Mid-Point Milestone
+      value: |
+        **Task Manager is a application or platform designed to help individuals or teams organize, manage, prioritize, and track tasks, events and activities. It provides users with tools and features to create tasks,events set timelines, assign, monitor progress, and collaborate with team members.**
+        ## Goals:
+
+        - [ ] User-Friendly Interface: Develop an intuitive and user-friendly design for easy template creation.
+        - [ ] Versatility: Provide a tool that caters to various document types and purposes.
+        - [ ] Consistency: Ensure templates maintain a consistent look and feel across different sections.
+        - [ ] Customization: Enable users to easily customize templates to meet their specific needs.
+        - [ ] Efficiency: Streamline the document creation process, saving users time and effort.
+        - [ ] Compatibility: Ensure compatibility with popular document formats and software.
+        - [ ] Collaboration: Allow users to collaborate on template creation, facilitating team workflows.
+        - [ ] Streamline Communication: Provide communication tools such as real-time chat/ task comments to facilitate efficient communication among team members, reducing the need for lengthy email threads or separate communication channels.
+        - [ ] Ensure Security and Data Privacy:Prioritize security measures to protect sensitive data and ensure user privacy, including encryption of data, secure authentication mechanisms, and compliance with relevant data protection regulations.
+        #Milestones for Task Manager:
+        Prototype Development: Create an initial version showcasing basic task manager functionalities.
+        User Testing: Gather feedback from users to refine and improve the task manager usability.
+        Official Release: Launch the task manager to the public, marking its availability for organizations employee use with authentication policy.
+
+  - type: textarea
+    id: ticket-setup
+    attributes:
+      label: Setup/Installation 
+      value: |
+        Installations guidelines:
+        - Clone your project
+        - Go to the folder application using cd command on your cmd or terminal
+        - Run composer install on your cmd or terminal
+        - Copy .env.example file to .env on the root folder. You can type copy .env.example .env if using command prompt Windows or cp .env.example .env if using terminal, Ubuntu
+        - Open your .env file and change the database name (DB_DATABASE) to whatever you have, username (DB_USERNAME) and password (DB_PASSWORD) field correspond to your configuration.
+        - Run php artisan key:generate
+        - Run php artisan migrate
+        - Run php artisan serve
+        - Go to http://localhost:8000/
+
+  - type: textarea
+    id: ticket-expected-outcome
+    attributes:
+      label: Expected Outcome
+      description: Describe in detail what the final product or result should look like and how it should behave.
+      value: |
+        Make the product as plug and playable, more integratable, and user-friendly.
+
+  - type: textarea
+    id: ticket-acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      value: |
+        Better Ui/ Ux and easy integration feature with any system
+
+  - type: textarea
+    id: ticket-implementation-details
+    validations:
+      required: true
+    attributes:
+      label: Implementation Details
+      value: |
+        The project will be developed using Laravel framework. Specific tasks include:
+        - Creating a template registry for drag and drop functionality.
+        - Enhancing UI/UX design.
+        - Making the system integratable or converting it into a package.
+        - Integrating digital signature for approver and applicant.
+
+  - type: textarea
+    id: ticket-mockups
+    attributes:
+      label: Mockups/Wireframes
+      value: |
+        N/A
+
+  - type: input
+    id: ticket-product
+    attributes:
+      label: Product Name
+      placeholder: Task Manager
+    validations:
+      required: true
+
+  - type: textarea
+    id: ticket-organisation
+    attributes:
+      label: Organisation Name
+      description: Enter Organisation Name
+      value: a2i
+    validations:
+      required: true
+
+  - type: textarea
+    id: ticket-governance-domain
+    attributes:
+      label: Domain
+      description: Enter the domain of the project
+      value: N/A
+    validations:
+      required: true
+
+  - type: textarea
+    id: ticket-technical-skills-required
+    attributes:
+      label: Tech Skills Needed
+      value: PHP, Laravel, API 
+    validations:
+      required: true
