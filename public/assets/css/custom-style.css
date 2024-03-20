@@ -1,0 +1,206 @@
+@font-face {
+    font-family: 'SolaimanLipi';
+    src: url('../font/SolaimanLipi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal
+}
+
+body,
+.popover {
+    font-family: Poppins, SolaimanLipi, sans-serif;
+    color: #000;
+}
+
+#kt_content {
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.menu-item.menu-item-active > .menu-link .menu-icon i {
+    color: #3699FF !important;
+}
+
+.brand-logo img {
+    width: 42px;
+}
+
+.partners img {
+    width: 150px;
+}
+
+
+/* @media screen and (min-width: 992px){
+    .header-fixed.subheader-fixed.subheader-enabled .wrapper {
+        padding-top: 60px;
+    }
+} */
+
+.full-width-footer .footer {
+    left: 0 !important;
+}
+
+.split {
+    height: 100%;
+}
+
+.split > div {
+    float: left;
+    height: 100%;
+}
+
+.gutter {
+    background-color: #eee;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+    cursor: col-resize;
+}
+
+.gutter.gutter-vertical {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
+    cursor: row-resize;
+}
+
+.aside-menu .menu-nav > .menu-item {
+    margin-right: 15px;
+}
+
+.aside-menu .menu-nav > .menu-item.menu-item-active > .menu-link {
+    background-color: #c1e0ff !important;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.aside-menu .menu-nav > .menu-item > .menu-link2 {
+    padding: 5px 25px !important;
+    min-height: 36px !important;
+}
+
+.aside-menu .menu-nav > .menu-item > .menu-link2:hover {
+    background-color: #F3F6F9 !important;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.aside-menu .menu-link:hover {
+    background-color: #F3F6F9 !important;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.aside-menu .menu-nav > .menu-item > .menu-link {
+    padding: 5px 25px !important;
+    min-height: 36px !important;
+}
+
+.bootstrap-select > .dropdown-toggle.btn-light .filter-option {
+    color: #000000;
+}
+
+#kt_quick_cart {
+    position: absolute;
+}
+
+
+/* .offcanvas-overlay{
+    position: relative !important;
+} */
+
+.side-panel-overlay::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    content: "";
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+}
+
+.select2-selection,
+.select2-dropdown {
+    border-radius: 0 !important;
+}
+
+@media screen and (min-width: 992px) {
+    .footer-fixed .footer {
+        height: auto !important;
+    }
+}
+
+.width-120p {
+    width: 120px;
+}
+
+.fixed-width-dropdown::after {
+    float: right;
+    top: 6px;
+}
+
+@media (min-width: 640px) {
+    .dropdown-menu.dropdown-menu-lg {
+        width: 600px;
+        z-index: 9999999999 !important;
+        left: 50px !important;
+    }
+}
+
+button.btn, a.btn {
+    border-radius: 0 !important;
+}
+
+.aside {
+    background-color: #ffffff;
+    -webkit-box-shadow: 0px 0px 10px 0px rgb(82 63 105 / 8%);
+    box-shadow: 0px 0px 10px 0px rgb(82 63 105 / 8%);
+}
+
+@media (min-width: 992px) {
+    .header-fixed .header {
+        box-shadow: 0px 0px 10px 0px rgb(82 63 105 / 10%);
+    }
+}
+
+.daterangepicker.show-calendar {
+    z-index: 1001
+}
+
+
+.fc-dayGridMonth-button, .fc-timeGridWeek-button, .fc-timeGridDay-button, .fc-listWeek-button, .fc-today-button {
+    text-transform: capitalize;
+}
+
+
+.remove_notification_btn{
+    cursor: pointer;
+}
+
+
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    list-style: none;
+    padding: 0;
+}
+
+.color-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.fa-null:before {
+    content: "";
+}
