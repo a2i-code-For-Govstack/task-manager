@@ -17,8 +17,15 @@
                     <i class="fas fa-plus-circle mr-1"></i>
                     Add New Task
                 </a>
+                <a href="{{ route('google.authenticate') }}" class="btn btn-primary">Connect Google Calendar</a>
+
             </div>
         </div>
+        @if (session('google_calendar_token'))
+    <h3>Google Calendar Events</h3>
+    <iframe src="{{ route('google.calendar') }}" style="width: 100%; height: 500px; border: none;"></iframe>
+@endif
+
     </div>
 </div>
 

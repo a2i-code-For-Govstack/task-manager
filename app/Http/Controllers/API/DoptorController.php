@@ -4,12 +4,13 @@ namespace App\Http\Controllers\API;
 
 use App\Services\CalEventGuestServices;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator; 
 
 class DoptorController
 {
     public function searchUser(Request $request, CalEventGuestServices $calEventGuestServices)
     {
-        \Validator::make($request->all(), [
+        Validator::make($request->all(), [
             'search_key' => 'required'
         ],
         [

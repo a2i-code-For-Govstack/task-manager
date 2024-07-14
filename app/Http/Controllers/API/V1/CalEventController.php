@@ -5,19 +5,20 @@ namespace App\Http\Controllers\API\V1;
 use App\Http\Controllers\Controller;
 use App\Services\CalEventServices;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CalEventController extends Controller
 {
     public function index(Request $request, CalEventServices $calEventServices): \Illuminate\Http\JsonResponse
     {
-        \Validator::make($request->all(), ['officer_id' => 'required|integer']);
+        Validator::make($request->all(), ['officer_id' => 'required|integer']);
         $events = $calEventServices->loadEventsByOfficerId($request);
         return response()->json($events);
     }
 
     public function storeEvent(Request $request, CalEventServices $calEventServices): \Illuminate\Http\JsonResponse
     {
-        $validated = \Validator::make($request->all(), [
+        $validated = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
             'start_date' => 'required',

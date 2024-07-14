@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Helpers;
+use Illuminate\Support\Facades\Config; 
 
 class ApiHelper
 {
     public static function api_url($name = '', $url = '')
     {
         if ($url || $name) {
-            \Config::set('constants.api_url', $url);
-            \Config::set('constants.client_api_name', $name);
+            Config::set('constants.api_url', $url);
+            Config::set('constants.client_api_name', $name);
             return config('constants.api_url');
         }
         return config('constants.api_url');
