@@ -15,6 +15,52 @@ Route::get('google/authenticate', [GoogleController::class, 'authenticate'])->na
 
 Route::get('events/edit/{id}', [GoogleController::class, 'editEventForm'])->name('google.editEventForm');
 
+///////////////////
+
+
+
+Route::get('/auth/google', [GoogleController::class, 'authenticate'])->name('google.redirect');
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
+Route::get('/events', [GoogleController::class, 'listEvents'])->name('google.listEvents');
+Route::post('/events', [GoogleController::class, 'createEvent'])->name('google.createEvent');
+Route::put('/events/{id}', [GoogleController::class, 'updateEvent'])->name('google.updateEvent');
+Route::delete('/events/{id}', [GoogleController::class, 'deleteEvent'])->name('google.deleteEvent');
+
+
+
+/////////////////////
+/*
+
+Route::get('/google', [GoogleController::class, 'listEvents'])->name('google.listEvents');
+Route::get('/google/authenticate', [GoogleController::class, 'authenticate'])->name('google.authenticate');
+Route::get('/google/redirect', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect');
+Route::get('/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
+Route::post('/google/events/create', [GoogleController::class, 'createEvent'])->name('google.createEvent');
+Route::post('/google/events/update/{id}', [GoogleController::class, 'updateEvent'])->name('google.updateEvent');
+Route::post('/google/events/delete/{id}', [GoogleController::class, 'deleteEvent'])->name('google.deleteEvent');
+Route::get('/google/events/edit/{id}', [GoogleController::class, 'editEventForm'])->name('google.editEventForm');
+*/
+
+
+
+Route::get('/google/events', [GoogleController::class, 'listEvents'])->name('google.listEvents');
+Route::post('/google/createEvent', [GoogleController::class, 'createEvent'])->name('google.createEvent');
+// Add other routes for edit, update, delete...
+
+
+
+Route::post('/events/create', [GoogleController::class, 'createEvent'])->name('events.create');
+
+
+
+
+
+
+
+
+//Route::get('/google/authenticate', [GoogleController::class, 'authenticate']);
+//Route::get('/google', [GoogleController::class, 'index']);
+
 
 
 Route::get('google/redirect', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect');

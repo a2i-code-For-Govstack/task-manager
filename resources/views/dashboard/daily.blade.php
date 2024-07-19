@@ -1,3 +1,29 @@
+<head>
+
+    <style>
+        .btn-google-calendar {
+            background-color: #EEE5FF; /* Light purple color */
+            color: #4b0082; /* Dark purple color */
+            border: none;
+        }
+
+        .btn-google-calendar:hover {
+            background-color: #8950FC; /* Slightly darker purple color */
+            color: #e6e6fa; /* Light purple color */
+        }
+
+        .btn-google-calendar i {
+            color: inherit; /* Icon color inherits the text color */
+        }
+
+        .tooltip-inner {
+            max-width: none; 
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<!-- 
 <div class="row gy-3 g-xl-8">
     <div class="col-md-12">
         <h1 class="h1 p-2 pl-5 mb-3 border-bottom">Dashboard</h1>
@@ -28,6 +54,43 @@
 
     </div>
 </div>
+
+-->
+
+
+<div class="row gy-3 g-xl-8">
+    <div class="col-md-12">
+        <h1 class="h1 p-2 pl-5 mb-3 border-bottom">Dashboard</h1>
+    </div>
+</div>
+
+<div style="background: white" class="ml-3 mr-5 table-search-header-wrapper mb-4 pt-3 pb-2 shadow-sm">
+    <div class="row gy-5 g-xl-8">
+        <div class="col-md-7 mt-2">
+            <h3 class="p-0 pl-5 mb-3">Tasks</h3>
+        </div>
+
+        <div class="col-md-5">
+            <div class="d-flex justify-content-md-end pr-3">
+                <a onclick="Generic_Container.addTask($(this))" class="btn btn-sm btn-light-info btn-square mr-1"
+                    href="javascript:;">
+                    <i class="fas fa-plus-circle mr-1"></i>
+                    Add New Task
+                </a>
+                <a href="{{ route('google.authenticate') }}" class="btn btn-google-calendar" data-toggle="tooltip" data-placement="bottom" title="Google Calendar">
+                    <i class="fas fa-calendar-alt"></i>
+                </a>
+            </div>
+        </div>
+        @if (session('google_calendar_token'))
+            <div class="col-12 mt-4">
+                <iframe src="{{ route('google.calendar') }}" style="width: 100%; height: 500px; border: none;"></iframe>
+            </div>
+        @endif
+    </div>
+</div>
+
+
 
 <div class="row gy-5 g-xl-8" style="max-height: 80vh; overflow-y: scroll">
     <div class="col-xl-4">
@@ -533,4 +596,8 @@
     $('.popover-dismiss').click(function() {
         $('.popover').popover('hide');
     })
+    // this is new function
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip(); 
+    });
 </script>
