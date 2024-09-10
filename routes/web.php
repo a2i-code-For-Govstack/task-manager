@@ -1,17 +1,81 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\GoogleController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect');
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
+Route::get('events', [GoogleController::class, 'listEvents'])->name('events.list');
+Route::get('google/authenticate', [GoogleController::class, 'authenticate'])->name('google.authenticate');
+//Route::get('/google/logout', [GoogleController::class, 'logout'])->name('google.logout');
+
+
+
+Route::get('events/edit/{id}', [GoogleController::class, 'editEventForm'])->name('google.editEventForm');
+
+
+
+Route::get('google/redirect', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect');
+Route::get('google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
+Route::get('google/events', [GoogleController::class, 'listEvents'])->name('google.listEvents');
+Route::post('google/events/create', [GoogleController::class, 'createEvent'])->name('google.createEvent');
+Route::post('google/events/update/{id}', [GoogleController::class, 'updateEvent'])->name('google.updateEvent');
+Route::delete('google/events/delete/{id}', [GoogleController::class, 'deleteEvent'])->name('google.deleteEvent');
+
+
+
+
+Route::get('/events', [GoogleController::class, 'listEvents'])->name('google.listEvents');
+Route::post('/create-event', [GoogleController::class, 'createEvent'])->name('google.createEvent');
+Route::delete('/delete-event/{id}', [GoogleController::class, 'deleteEvent'])->name('google.deleteEvent');
+Route::put('/update-event/{id}', [GoogleController::class, 'updateEvent'])->name('google.updateEvent');
+Route::get('/edit-event/{id}', [GoogleController::class, 'editEventForm'])->name('google.editEventForm');
+
+// Other Google routes
+Route::get('/google/redirect', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect');
+Route::get('/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
+Route::get('/google/authenticate', [GoogleController::class, 'authenticate'])->name('google.authenticate');
+
+
+
+
+
+Route::get('/auth/google', [GoogleController::class, 'authenticate'])->name('google.redirect');
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
+Route::get('/events', [GoogleController::class, 'listEvents'])->name('events.list');
+Route::get('/events/edit/{id}', [GoogleController::class, 'editEventForm'])->name('events.edit');
+Route::post('/events/create', [GoogleController::class, 'createEvent'])->name('events.create');
+Route::post('/events/update/{id}', [GoogleController::class, 'updateEvent'])->name('events.update');
+Route::delete('/events/delete/{id}', [GoogleController::class, 'deleteEvent'])->name('events.delete');
+
+
+
+
+
+Route::get('events', [GoogleController::class, 'listEvents'])->name('google.listEvents');
+Route::post('google/createEvent', [GoogleController::class, 'createEvent'])->name('google.createEvent');
+Route::put('google/updateEvent/{eventId}', [GoogleController::class, 'updateEvent'])->name('google.updateEvent');
+Route::delete('google/deleteEvent/{eventId}', [GoogleController::class, 'deleteEvent'])->name('google.deleteEvent');
+
+
+
+
+
+
+//Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect');
+//Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
+//Route::get('events', [GoogleController::class, 'listEvents'])->name('events.list');
+//Route::get('google/authenticate', [GoogleController::class, 'authenticate'])->name('google.authenticate');
+//Route::get('/logout', [GoogleController::class, 'logout'])->name('logout');
+//Route::get('/google/redirect', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect');
+//Route::get('/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
+//Route::get('/google/logout', [GoogleController::class, 'logout'])->name('google.logout');
+//Route::get('/google/events', [GoogleController::class, 'listEvents'])->name('google.events');
+
+
+
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
 
@@ -30,6 +94,7 @@ Route::group(['middleware' => 'system.auth', 'prefix' => 'admin', 'as' => 'admin
 });
 
 Route::group(['middleware' => 'ndoptor.auth'], function () {
+   
     Route::get('/dashboard', [\App\Http\Controllers\HomeController::class, 'dashboard'])->name('home.dashboard');
     Route::get('/dashboard/load-daily', [\App\Http\Controllers\HomeController::class, 'dailyDashboard'])->name('home.dashboard.daily');
     // Main Calendar
@@ -104,6 +169,15 @@ Route::group(['middleware' => 'ndoptor.auth'], function () {
     Route::get('/notifications/lists', [\App\Http\Controllers\NotificationController::class, 'getNotifications'])->name('notifications.lists');
 });
 
+// Google Calendar
+//Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect');
+//Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+//Route::get('events', [GoogleController::class, 'listEvents'])->name('events.list');
+//Route::get('google/authenticate', [GoogleController::class, 'authenticate'])->name('google.authenticate');
+
+
+
+// 3 line code
 Route::get('/clear-cache', function () {
     Artisan::call('cache:clear');
     Artisan::call('view:clear');
@@ -116,3 +190,7 @@ Route::get('/clear-log', function () {
     exec('rm -f ' . base_path('*.log'));
     return 'Logs have been cleared!';
 });
+
+
+
+

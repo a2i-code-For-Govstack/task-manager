@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::post('calendar-events', [\App\Http\Controllers\API\V1\CalEventController::class, 'index']);
 Route::post('calendar-events/store', [\App\Http\Controllers\API\V1\CalEventController::class, 'storeEvent']);
 
