@@ -3,6 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\GoogleController;
+use Illuminate\Support\Facades\Mail;
+
+
+
+
+
+
 
 
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect');
@@ -39,6 +46,18 @@ Route::post('/google/createEvent', [GoogleController::class, 'createEvent'])->na
 
 
 Route::post('/events/create', [GoogleController::class, 'createEvent'])->name('events.create');
+
+
+
+// new line code 23 aug
+Route::get('/google/updateEvent/{id}', [GoogleController::class, 'updateEvent'])->name('google.updateEvent')->middleware('auth');
+
+// above one 
+
+
+Route::post('/google/notifications', [GoogleController::class, 'handleNotifications'])->name('google.notifications');
+
+
 
 
 
