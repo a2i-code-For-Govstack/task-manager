@@ -3,6 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\GoogleController;
+use Illuminate\Support\Facades\Mail;
+
+
+
+
+
+
 
 
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect');
@@ -14,6 +21,52 @@ Route::get('google/authenticate', [GoogleController::class, 'authenticate'])->na
 
 
 Route::get('events/edit/{id}', [GoogleController::class, 'editEventForm'])->name('google.editEventForm');
+
+///////////////////
+
+
+
+Route::get('/auth/google', [GoogleController::class, 'authenticate'])->name('google.redirect');
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
+Route::get('/events', [GoogleController::class, 'listEvents'])->name('google.listEvents');
+Route::post('/events', [GoogleController::class, 'createEvent'])->name('google.createEvent');
+Route::put('/events/{id}', [GoogleController::class, 'updateEvent'])->name('google.updateEvent');
+Route::delete('/events/{id}', [GoogleController::class, 'deleteEvent'])->name('google.deleteEvent');
+
+
+
+
+
+
+
+Route::get('/google/events', [GoogleController::class, 'listEvents'])->name('google.listEvents');
+Route::post('/google/createEvent', [GoogleController::class, 'createEvent'])->name('google.createEvent');
+// Add other routes for edit, update, delete...
+
+
+
+Route::post('/events/create', [GoogleController::class, 'createEvent'])->name('events.create');
+
+
+
+// new line code 23 aug
+Route::get('/google/updateEvent/{id}', [GoogleController::class, 'updateEvent'])->name('google.updateEvent')->middleware('auth');
+
+// above one 
+
+
+Route::post('/google/notifications', [GoogleController::class, 'handleNotifications'])->name('google.notifications');
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -64,15 +117,7 @@ Route::delete('google/deleteEvent/{eventId}', [GoogleController::class, 'deleteE
 
 
 
-//Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect');
-//Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
-//Route::get('events', [GoogleController::class, 'listEvents'])->name('events.list');
-//Route::get('google/authenticate', [GoogleController::class, 'authenticate'])->name('google.authenticate');
-//Route::get('/logout', [GoogleController::class, 'logout'])->name('logout');
-//Route::get('/google/redirect', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect');
-//Route::get('/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
-//Route::get('/google/logout', [GoogleController::class, 'logout'])->name('google.logout');
-//Route::get('/google/events', [GoogleController::class, 'listEvents'])->name('google.events');
+
 
 
 
@@ -169,11 +214,7 @@ Route::group(['middleware' => 'ndoptor.auth'], function () {
     Route::get('/notifications/lists', [\App\Http\Controllers\NotificationController::class, 'getNotifications'])->name('notifications.lists');
 });
 
-// Google Calendar
-//Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect');
-//Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
-//Route::get('events', [GoogleController::class, 'listEvents'])->name('events.list');
-//Route::get('google/authenticate', [GoogleController::class, 'authenticate'])->name('google.authenticate');
+
 
 
 

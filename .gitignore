@@ -15,7 +15,9 @@ yarn-error.log
 /.vscode
 composer.lock
 .history
-# Ignore credentials files
 config/credentials.json
-storage/app/google-client-secret.json
+
+# Ignore credentials files
+#config/credentials.json
+#storage/app/google-client-secret.json
 
